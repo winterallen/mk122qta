@@ -1,0 +1,143 @@
+[project]
+name = "mk122"
+version = "0.1.0"
+description = "MK122 autonomous quantitative trading system"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "mk-autonomy",
+    "mk-autonomy-worker",
+    "mk-chaos",
+    "mk-chaos-runner",
+    "mk-common",
+    "mk-data",
+    "mk-dashboard",
+    "mk-execution",
+    "mk-executor-app",
+    "mk-learning",
+    "mk-learning-worker",
+    "mk-live",
+    "mk-live-guard",
+    "mk-meta",
+    "mk-observability",
+    "mk-orchestrator",
+    "mk-risk",
+    "mk-risk-gate",
+    "mk-signals",
+    "mk-simulation",
+    "mk-signal-engine",
+    "mk-strategies",
+    "mk-strategy-runner",
+]
+
+[dependency-groups]
+dev = [
+    "httpx>=0.27",
+    "hypothesis>=6.100",
+    "mkdocs-material>=9.5",
+    "mypy>=1.10",
+    "pre-commit>=3.7",
+    "pytest>=8.2",
+    "pytest-asyncio>=0.23",
+    "pytest-xdist>=3.6",
+    "ruff>=0.4.10",
+    "types-PyYAML>=6.0",
+]
+
+[tool.uv]
+package = false
+
+[tool.uv.workspace]
+members = [
+    "packages/*",
+    "apps/*",
+]
+
+[tool.uv.sources]
+mk-autonomy = { workspace = true }
+mk-autonomy-worker = { workspace = true }
+mk-chaos = { workspace = true }
+mk-chaos-runner = { workspace = true }
+mk-common = { workspace = true }
+mk-dashboard = { workspace = true }
+mk-data = { workspace = true }
+mk-execution = { workspace = true }
+mk-executor-app = { workspace = true }
+mk-learning = { workspace = true }
+mk-learning-worker = { workspace = true }
+mk-live = { workspace = true }
+mk-live-guard = { workspace = true }
+mk-meta = { workspace = true }
+mk-observability = { workspace = true }
+mk-orchestrator = { workspace = true }
+mk-risk = { workspace = true }
+mk-risk-gate = { workspace = true }
+mk-signals = { workspace = true }
+mk-simulation = { workspace = true }
+mk-signal-engine = { workspace = true }
+mk-strategies = { workspace = true }
+mk-strategy-runner = { workspace = true }
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = [
+    "apps",
+    "packages",
+    "tests",
+]
+pythonpath = [
+    "packages/mk_autonomy/src",
+    "packages/mk_chaos/src",
+    "packages/mk_common/src",
+    "packages/mk_data/src",
+    "packages/mk_execution/src",
+    "packages/mk_learning/src",
+    "packages/mk_live/src",
+    "packages/mk_meta/src",
+    "packages/mk_observability/src",
+    "packages/mk_risk/src",
+    "packages/mk_signals/src",
+    "packages/mk_simulation/src",
+    "packages/mk_strategies/src",
+    "apps/mk_autonomy_worker/src",
+    "apps/mk_chaos_runner/src",
+    "apps/mk_dashboard/src",
+    "apps/mk_executor_app/src",
+    "apps/mk_learning_worker/src",
+    "apps/mk_live_guard/src",
+    "apps/mk_orchestrator/src",
+    "apps/mk_risk_gate/src",
+    "apps/mk_signal_engine/src",
+    "apps/mk_strategy_runner/src",
+]
+markers = [
+    "integration: tests that touch external systems or IO-heavy services",
+    "e2e: full workflow tests",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = [
+    ".uv-cache",
+    ".uv-python",
+    ".venv",
+    "site",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+files = [
+    "packages",
+    "apps",
+]
+ignore_missing_imports = true

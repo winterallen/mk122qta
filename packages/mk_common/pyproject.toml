@@ -1,0 +1,17 @@
+[project]
+name = "mk-common"
+version = "0.1.0"
+description = "Shared contracts, configuration, clocks, events, and utilities for MK122"
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.8",
+    "pyyaml>=6.0",
+    "structlog>=24.1",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mk_common"]

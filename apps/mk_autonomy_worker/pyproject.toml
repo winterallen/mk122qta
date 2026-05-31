@@ -1,0 +1,21 @@
+[project]
+name = "mk-autonomy-worker"
+version = "0.1.0"
+description = "NAS and RL autonomy worker for MK122 P7"
+requires-python = ">=3.11"
+dependencies = [
+    "mk-autonomy",
+]
+
+[project.scripts]
+mk-autonomy-worker = "mk_autonomy_worker.main:main"
+
+[tool.uv.sources]
+mk-autonomy = { workspace = true }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mk_autonomy_worker"]

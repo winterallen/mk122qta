@@ -1,0 +1,28 @@
+[project]
+name = "mk-simulation"
+version = "0.1.0"
+description = "Minimal simulation and backtest package for MK122 P0"
+requires-python = ">=3.11"
+dependencies = [
+    "mk-execution",
+    "mk-common",
+    "mk-data",
+    "mk-risk",
+    "mk-signals",
+    "mk-strategies",
+]
+
+[tool.uv.sources]
+mk-execution = { workspace = true }
+mk-common = { workspace = true }
+mk-data = { workspace = true }
+mk-risk = { workspace = true }
+mk-signals = { workspace = true }
+mk-strategies = { workspace = true }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mk_simulation"]

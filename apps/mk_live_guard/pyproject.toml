@@ -1,0 +1,21 @@
+[project]
+name = "mk-live-guard"
+version = "0.1.0"
+description = "Live rollout guard runner for MK122 P6"
+requires-python = ">=3.11"
+dependencies = [
+    "mk-live",
+]
+
+[project.scripts]
+mk-live-guard = "mk_live_guard.main:main"
+
+[tool.uv.sources]
+mk-live = { workspace = true }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mk_live_guard"]

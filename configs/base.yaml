@@ -1,0 +1,11 @@
+app:
+  name: mk122
+  env: dev
+
+events:
+  nats_url: nats://127.0.0.1:4222
+
+data:
+  provider: tushare
+  lakehouse_root: data/lakehouse
+  raw_root: data/raw

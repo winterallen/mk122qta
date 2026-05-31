@@ -1,0 +1,7 @@
+app:
+  env: dev
+
+data:
+  sample_symbol: "000001.SZ"
+  sample_start_date: "20240101"
+  sample_end_date: "20241231"

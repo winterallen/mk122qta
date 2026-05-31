@@ -1,0 +1,20 @@
+site_name: MK122
+site_description: MK122 全自动量化交易自治系统文档站点
+theme:
+  name: material
+  language: zh
+nav:
+  - 首页: index.md
+  - PRD V2.1: PRD/v2.1.md
+  - 项目框架: architecture/project-framework.md
+  - 可视化层: architecture/visualization.md
+  - ADR:
+      - ADR-0001 Monorepo: architecture/adr/0001-monorepo-uv-workspace.md
+      - ADR-0002 数据契约: architecture/adr/0002-python-pydantic-contracts.md
+      - ADR-0003 事件总线: architecture/adr/0003-event-bus-nats-redis.md
+      - ADR-0004 状态识别: architecture/adr/0004-gmm-market-state.md
+      - ADR-0005 撮合引擎: architecture/adr/0005-self-built-matching-engine.md
+      - ADR-0006 Actor 模型: architecture/adr/0006-actor-model.md
+      - ADR-0007 Lakehouse: architecture/adr/0007-delta-duckdb-lakehouse.md
+  - 开发计划: guides/development-plan.md
+  - 开发进度: guides/progress.md

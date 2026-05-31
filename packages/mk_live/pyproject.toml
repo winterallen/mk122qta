@@ -1,0 +1,13 @@
+[project]
+name = "mk-live"
+version = "0.1.0"
+description = "Broker adapter, approval, kill switch, and live rollout primitives for MK122 P6"
+requires-python = ">=3.11"
+dependencies = []
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mk_live"]
